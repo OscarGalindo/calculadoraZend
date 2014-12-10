@@ -15,8 +15,28 @@ return array(
                 'options' => array(
                     'route'    => '/calc',
                     'defaults' => array(
-                        'controller' => 'Calculator\Controller\Index',
+                        'controller' => 'CalculatorFact',
                         'action'     => 'index',
+                    ),
+                ),
+            ),
+            'add' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/calc/add',
+                    'defaults' => array(
+                        'controller' => 'CalculatorFact',
+                        'action'     => 'add',
+                    ),
+                ),
+            ),
+            'subtract' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/calc/subtract',
+                    'defaults' => array(
+                        'controller' => 'CalculatorFact',
+                        'action'     => 'subtract',
                     ),
                 ),
             ),
@@ -27,11 +47,17 @@ return array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
+        'invokables' => array(
+            'CalculatorModel' => 'Calculator\Model\CalculatorModel'
+        ),
     ),
     'controllers' => array(
-        'invokables' => array(
-            'Calculator\Controller\Index' => 'Calculator\Controller\IndexController'
-        ),
+//        'invokables' => array(
+//            'Calculator\Controller\Index' => 'Calculator\Controller\IndexController'
+//        ),
+        'factories' => array(
+            'CalculatorFact' => 'Calculator\Controller\Factory\IndexFactory',
+        )
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,

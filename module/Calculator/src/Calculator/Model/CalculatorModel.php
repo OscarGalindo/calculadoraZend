@@ -1,13 +1,18 @@
 <?php
 
-namespace Calculator\model;
+namespace Calculator\Model;
 
 
-class Calculator
+class CalculatorModel
 {
     private $op1;
     private $op2;
-    private $result = 0;
+    private $result;
+
+    function __construct()
+    {
+        $this->result = 0;
+    }
 
     public function add()
     {
