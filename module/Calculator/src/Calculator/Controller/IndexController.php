@@ -11,7 +11,7 @@ namespace Calculator\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Calculator\Model\CalculatorModel;
-use Calculator\CalcForms\CalcForm;
+use Calculator\Form\CalculatorForm as CalcForm;
 
 class IndexController extends AbstractActionController
 {
@@ -22,10 +22,13 @@ class IndexController extends AbstractActionController
         $this->calc = $calc;
     }
 
-
     public function indexAction()
     {
-        return array('mensaje' => 'Calculator Controller - Index Action');
+        $form = new CalcForm();
+        return array(
+            'mensaje' => 'Calculator Controller - Index Action',
+            'form' => $form
+        );
     }
 
     public function addAction()

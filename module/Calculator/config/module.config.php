@@ -30,6 +30,16 @@ return array(
                     ),
                 ),
             ),
+            'doAdd' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/calc/doAdd',
+                    'defaults' => array(
+                        'controller' => 'CalculatorFact',
+                        'action'     => 'doAdd',
+                    ),
+                ),
+            ),
             'subtract' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

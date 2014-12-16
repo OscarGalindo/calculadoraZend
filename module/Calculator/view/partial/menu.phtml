@@ -1,7 +1,9 @@
-<p><?php echo $this->escapeHtml($this->breadcrumb); ?></p>
+<div class="col-sm-2">
+    <p><?php echo $this->escapeHtml($this->breadcrumb); ?></p>
 
-<ul>
-    <li><a href="<?php echo $this->url('calc'); ?>">Home</a></li>
-    <li><a href="<?php echo $this->url('add'); ?>">Add</a></li>
-    <li><a href="<?php echo $this->url('subtract'); ?>">Subtract</a></li>
-</ul>
+    <ul>
+        <li><a href="<?php echo $this->url('calc'); ?>">Home</a></li>
+        <li><a href="<?php echo $this->url('add'); ?>">Add</a></li>
+        <li><a href="<?php echo $this->url('subtract'); ?>">Subtract</a></li>
+    </ul>
+</div>
