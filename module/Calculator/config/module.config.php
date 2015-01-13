@@ -56,7 +56,7 @@ return array(
                     'route'    => '/calc/doSubtract',
                     'defaults' => array(
                         'controller' => 'CalculatorFact',
-                        'action'     => 'doAdd',
+                        'action'     => 'doSubtract',
                     ),
                 ),
             ),

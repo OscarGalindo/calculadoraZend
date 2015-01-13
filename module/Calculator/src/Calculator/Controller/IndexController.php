@@ -12,14 +12,15 @@ namespace Calculator\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Calculator\Model\CalculatorModel;
 use Calculator\Form\CalculatorForm as CalcForm;
+use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    private $calc;
+    private $_calc;
 
     function __construct(CalculatorModel $calc)
     {
-        $this->calc = $calc;
+        $this->_calc = $calc;
     }
 
     public function indexAction()
@@ -51,5 +52,51 @@ class IndexController extends AbstractActionController
             'mensaje' => 'Calculator Controller - Sub   tract Action',
             'form' => $form
         );
+    }
+
+    public function doAddAction()
+    {
+        $result = new ViewModel();
+        $result->setTemplate('calculator/index/response');
+
+        $op1 = $this->getRequest()->getPost('op1');
+        $op2 = $this->getRequest()->getPost('op2');
+
+        $this->_calc->setOp1($op1);
+        $this->_calc->setOp2($op2);
+        $this->_calc->add();
+        $resultado = $this->_calc->getResult();
+
+        $result->setVariables(array(
+            'op1' => $op1,
+            'op2' => $op2,
+            'sign' => '+',
+            'resultado' => $resultado,
+        ));
+
+        return $result;
+    }
+
+    public function doSubtractAction()
+    {
+        $result = new ViewModel();
+        $result->setTemplate('calculator/index/response');
+
+        $op1 = $this->getRequest()->getPost('op1');
+        $op2 = $this->getRequest()->getPost('op2');
+
+        $this->_calc->setOp1($op1);
+        $this->_calc->setOp2($op2);
+        $this->_calc->subtract();
+        $resultado = $this->_calc->getResult();
+
+        $result->setVariables(array(
+            'op1' => $op1,
+            'op2' => $op2,
+            'sign' => '-',
+            'resultado' => $resultado,
+        ));
+
+        return $result;
     }
 }

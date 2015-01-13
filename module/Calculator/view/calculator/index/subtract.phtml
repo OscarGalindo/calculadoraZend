@@ -6,7 +6,7 @@
     $formLabel = $this->plugin('formLabel');
 
     $form->setAttribute('method', 'post');
-    $form->setAttribute('action', $this->url('doAdd'));
+    $form->setAttribute('action', $this->url('doSubtract'));
     $form->prepare();
 
     echo $this->form()->openTag($form);
