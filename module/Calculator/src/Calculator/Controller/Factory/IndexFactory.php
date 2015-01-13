@@ -10,7 +10,7 @@ namespace Calculator\Controller\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Calculator\Controller\IndexController as CalcCtrl;
+use Calculator\Controller\IndexController;
 
 class IndexFactory implements FactoryInterface {
 
@@ -24,6 +24,6 @@ class IndexFactory implements FactoryInterface {
     {
         $sm = $serviceLocator->getServiceLocator();
         $model = $sm->get('CalculatorModel');
-        return new CalcCtrl($model);
+        return new IndexController($model);
     }
 }

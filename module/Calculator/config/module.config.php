@@ -50,6 +50,16 @@ return array(
                     ),
                 ),
             ),
+            'doSubtract' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/calc/doSubtract',
+                    'defaults' => array(
+                        'controller' => 'CalculatorFact',
+                        'action'     => 'doAdd',
+                    ),
+                ),
+            ),
         ),
     ),
     'service_manager' => array(
