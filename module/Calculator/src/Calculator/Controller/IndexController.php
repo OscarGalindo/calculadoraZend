@@ -32,26 +32,42 @@ class IndexController extends AbstractActionController
 
     public function addAction()
     {
-        $form = new CalcForm();
+        $result = new ViewModel();
+        $form   = new CalcForm();
 
-        return array(
-            'action' => 'Suma',
-            'sign' => '+',
-            'mensaje' => 'Calculator Controller - Add Action',
-            'form' => $form
+        $result->setTemplate('calculator/index/form');
+
+        $result->setVariables(
+            array(
+                'actionTitle' => 'Suma',
+                'action' => 'doAdd',
+                'sign' => '+',
+                'mensaje' => 'Calculator Controller - Add Action',
+                'form' => $form
+            )
         );
+
+        return $result;
     }
 
     public function subtractAction()
     {
-        $form = new CalcForm();
+        $result = new ViewModel();
+        $form   = new CalcForm();
 
-        return array(
-            'action' => 'Resta',
-            'sign' => '-',
-            'mensaje' => 'Calculator Controller - Sub   tract Action',
-            'form' => $form
+        $result->setTemplate('calculator/index/form');
+
+        $result->setVariables(
+            array(
+                'actionTitle' => 'Resta',
+                'action' => 'doSubtract',
+                'sign' => '-',
+                'mensaje' => 'Calculator Controller - Sub   tract Action',
+                'form' => $form
+            )
         );
+
+        return $result;
     }
 
     public function doAddAction()
@@ -67,12 +83,14 @@ class IndexController extends AbstractActionController
         $this->_calc->add();
         $resultado = $this->_calc->getResult();
 
-        $result->setVariables(array(
-            'op1' => $op1,
-            'op2' => $op2,
-            'sign' => '+',
-            'resultado' => $resultado,
-        ));
+        $result->setVariables(
+            array(
+                'op1' => $op1,
+                'op2' => $op2,
+                'sign' => '+',
+                'resultado' => $resultado,
+            )
+        );
 
         return $result;
     }
@@ -90,12 +108,14 @@ class IndexController extends AbstractActionController
         $this->_calc->subtract();
         $resultado = $this->_calc->getResult();
 
-        $result->setVariables(array(
-            'op1' => $op1,
-            'op2' => $op2,
-            'sign' => '-',
-            'resultado' => $resultado,
-        ));
+        $result->setVariables(
+            array(
+                'op1' => $op1,
+                'op2' => $op2,
+                'sign' => '-',
+                'resultado' => $resultado,
+            )
+        );
 
         return $result;
     }

@@ -1,12 +1,12 @@
 <?php echo $this->partial('partial/menu.phtml', array('breadcrumb' => 'Home')); ?>
-<h2>Has seleccionado: <?php echo $this->action; ?></h2>
+<h2>Has seleccionado: <?php echo $this->actionTitle; ?></h2>
 <div class="col-sm-10">
     <?php
     $form      = $this->form;
     $formLabel = $this->plugin('formLabel');
 
     $form->setAttribute('method', 'post');
-    $form->setAttribute('action', $this->url('doSubtract'));
+    $form->setAttribute('action', $this->url($this->action));
     $form->prepare();
 
     echo $this->form()->openTag($form);
