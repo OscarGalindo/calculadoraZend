@@ -24,15 +24,32 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $form = new CalcForm();
         return array(
-            'mensaje' => 'Calculator Controller - Index Action',
-            'form' => $form
+            'mensaje' => 'Selecciona una opcion',
         );
     }
 
     public function addAction()
     {
+        $form = new CalcForm();
 
+        return array(
+            'action' => 'Suma',
+            'sign' => '+',
+            'mensaje' => 'Calculator Controller - Add Action',
+            'form' => $form
+        );
+    }
+
+    public function subtractAction()
+    {
+        $form = new CalcForm();
+
+        return array(
+            'action' => 'Resta',
+            'sign' => '-',
+            'mensaje' => 'Calculator Controller - Sub   tract Action',
+            'form' => $form
+        );
     }
 }
